@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ЮрПомощь24 — Юридическая помощь в Москве | Семья, Труд, ДТП, Застройщики</title>
+<meta name="description" content="Юридическая фирма в Москве. Ведём дела по семейному, трудовому праву, ДТП и застройщикам. Узнайте шансы на успех ещё до звонка — бесплатный онлайн-квалификатор.">
+<meta name="keywords" content="юрист Москва, юридическая помощь, трудовой спор, ДТП страховая, застройщик неустойка, семейный юрист, развод раздел имущества">
+<meta property="og:title" content="ЮрПомощь24 — Юридическая помощь в Москве">
+<meta property="og:description" content="Семейные дела, трудовые споры, ДТП, застройщики. Честная оценка дела за 2 минуты — онлайн.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f4f0;--surface:#ffffff;--sf2:#f9f8f5;--sf3:#f2f1ed;
+  --border:#e0ddd6;--divider:#ece9e2;
+  --text:#18160f;--muted:#6a6960;--faint:#b0afa9;
+  --pri:#01696f;--pri-h:#0c4e54;--pri-l:#e3f2f3;--pri-xl:#f0f8f8;
+  --gold:#b07800;--gold-bg:#fdf6e3;
+  --fd:"Playfair Display",Georgia,serif;
+  --fb:"Inter","Helvetica Neue",sans-serif;
+  --r-sm:6px;--r-md:10px;--r-lg:16px;--r-xl:22px;--r-2xl:32px;
+  --sh-sm:0 1px 3px rgba(0,0,0,.06);
+  --sh-md:0 4px 20px rgba(0,0,0,.08);
+  --sh-lg:0 12px 48px rgba(0,0,0,.11);
+  --tr:200ms cubic-bezier(.16,1,.3,1);
+  --max:1120px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;scroll-padding-top:72px;}
+body{font-family:var(--fb);font-size:1rem;color:var(--text);background:var(--bg);min-height:100dvh;}
+a{color:inherit;text-decoration:none;}
+button{cursor:pointer;border:none;background:none;font:inherit;color:inherit;}
+img{display:block;max-width:100%;}
+p{line-height:1.65;max-width:68ch;}
+h1,h2,h3,h4{text-wrap:balance;line-height:1.2;}
+
+/* ── HEADER ── */
+.hdr{background:var(--surface);border-bottom:1px solid var(--border);padding:0 20px;position:sticky;top:0;z-index:200;box-shadow:var(--sh-sm);}
+.hdr-in{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px;}
+.logo{display:flex;align-items:center;gap:11px;flex-shrink:0;}
+.logo-name{font-family:var(--fd);font-size:1.15rem;font-weight:700;color:var(--text);line-height:1.1;}
+.logo-city{font-size:.68rem;color:var(--muted);display:block;margin-top:1px;font-family:var(--fb);}
+.hdr-nav{display:flex;align-items:center;gap:24px;}
+.hdr-nav a{font-size:.88rem;font-weight:500;color:var(--muted);transition:color var(--tr);}
+.hdr-nav a:hover{color:var(--pri);}
+.hdr-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.hdr-phone{font-weight:600;font-size:.9rem;color:var(--pri);padding:8px 15px;border:1.5px solid var(--pri);border-radius:var(--r-sm);transition:background var(--tr),color var(--tr);white-space:nowrap;}
+.hdr-phone:hover{background:var(--pri);color:#fff;}
+.msn-row{display:flex;gap:6px;}
+.msn-btn{width:36px;height:36px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;transition:opacity var(--tr);flex-shrink:0;}
+.msn-btn:hover{opacity:.82;}
+.msn-wa{background:#25d366;}
+.msn-tg{background:#2aabee;}
+.burger{display:none;flex-direction:column;gap:5px;padding:8px;border-radius:var(--r-sm);}
+.burger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all var(--tr);}
+
+/* ── MOBILE NAV ── */
+.mob-nav{display:none;position:fixed;inset:66px 0 0;background:var(--surface);z-index:190;padding:24px 20px;flex-direction:column;gap:4px;border-top:1px solid var(--border);box-shadow:var(--sh-lg);}
+.mob-nav.open{display:flex;}
+.mob-nav a{font-size:1rem;font-weight:500;padding:13px 0;border-bottom:1px solid var(--divider);color:var(--text);}
+.mob-nav .mob-cta{margin-top:16px;background:var(--pri);color:#fff;padding:14px;border-radius:var(--r-sm);text-align:center;font-weight:600;font-size:.95rem;border-bottom:none;}
+.mob-msn{display:flex;gap:10px;margin-top:12px;}
+.mob-msn a{flex:1;padding:12px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:.88rem;color:#fff;}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(145deg,#01696f 0%,#0a3e43 55%,#0f2c30 100%);color:#fff;padding:clamp(56px,8vw,96px) 20px clamp(48px,7vw,80px);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;pointer-events:none;}
+.hero-in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;position:relative;}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.9);padding:5px 14px;border-radius:var(--r-sm);font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;margin-bottom:18px;}
+.hero h1{font-family:var(--fd);font-size:clamp(1.75rem,3.8vw,2.9rem);font-weight:700;line-height:1.18;margin-bottom:18px;max-width:18ch;}
+.hero-sub{font-size:clamp(.95rem,1.5vw,1.08rem);opacity:.85;line-height:1.65;max-width:44ch;margin-bottom:32px;}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+.btn-hero{background:#fff;color:var(--pri);padding:14px 26px;border-radius:var(--r-sm);font-size:.95rem;font-weight:700;transition:box-shadow var(--tr),transform var(--tr);box-shadow:0 4px 16px rgba(0,0,0,.2);}
+.btn-hero:hover{box-shadow:0 8px 28px rgba(0,0,0,.28);transform:translateY(-1px);}
+.btn-hero-ghost{border:2px solid rgba(255,255,255,.45);color:#fff;padding:13px 24px;border-radius:var(--r-sm);font-size:.93rem;font-weight:600;transition:background var(--tr),border-color var(--tr);}
+.btn-hero-ghost:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.7);}
+.hero-stats{display:flex;flex-direction:column;gap:10px;flex-shrink:0;}
+.hstat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(8px);border-radius:var(--r-lg);padding:16px 20px;text-align:center;min-width:130px;}
+.hstat-num{font-family:var(--fd);font-size:1.9rem;font-weight:700;line-height:1;margin-bottom:4px;}
+.hstat-lbl{font-size:.75rem;opacity:.75;line-height:1.3;}
+
+/* ── SECTION BASE ── */
+.sec{padding:clamp(56px,7vw,88px) 20px;}
+.sec-in{max-width:var(--max);margin:0 auto;}
+.sec-label{font-size:.72rem;font-weight:700;color:var(--pri);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;}
+.sec-title{font-family:var(--fd);font-size:clamp(1.5rem,2.8vw,2.1rem);font-weight:700;margin-bottom:14px;color:var(--text);}
+.sec-desc{font-size:.97rem;color:var(--muted);line-height:1.65;max-width:52ch;margin-bottom:40px;}
+
+/* ── QUALIFIER CTA BANNER ── */
+.qual-banner{background:var(--pri);color:#fff;border-radius:var(--r-xl);padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:clamp(56px,7vw,88px);box-shadow:var(--sh-lg);}
+.qual-banner-txt h2{font-family:var(--fd);font-size:clamp(1.2rem,2.5vw,1.7rem);font-weight:700;margin-bottom:8px;}
+.qual-banner-txt p{font-size:.93rem;opacity:.85;line-height:1.6;max-width:40ch;}
+.qual-banner-txt strong{opacity:1;}
+.btn-qual{background:#fff;color:var(--pri);padding:14px 28px;border-radius:var(--r-sm);font-size:.95rem;font-weight:700;white-space:nowrap;transition:box-shadow var(--tr),transform var(--tr);box-shadow:0 4px 14px rgba(0,0,0,.2);flex-shrink:0;}
+.btn-qual:hover{box-shadow:0 8px 24px rgba(0,0,0,.28);transform:translateY(-1px);}
+
+/* ── PRACTICE AREAS ── */
+.areas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:16px;}
+.area-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px;transition:box-shadow var(--tr),border-color var(--tr);}
+.area-card:hover{box-shadow:var(--sh-md);border-color:var(--pri);}
+.area-ico{font-size:1.8rem;margin-bottom:14px;}
+.area-title{font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--text);}
+.area-desc{font-size:.85rem;color:var(--muted);line-height:1.6;margin-bottom:12px;}
+.area-price{font-size:.8rem;font-weight:600;color:var(--pri);background:var(--pri-l);padding:4px 10px;border-radius:var(--r-sm);display:inline-block;}
+.area-tag-no{font-size:.75rem;color:var(--faint);margin-top:10px;padding-top:10px;border-top:1px solid var(--divider);}
+
+/* ── HOW IT WORKS ── */
+.how-sec{background:var(--sf3);}
+.steps-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;}
+.steps-row::before{content:'';position:absolute;top:28px;left:calc(100%/6);right:calc(100%/6);height:2px;background:linear-gradient(90deg,transparent,var(--border),var(--border),transparent);pointer-events:none;}
+.step-item{text-align:center;padding:28px 20px;}
+.step-num{width:52px;height:52px;border-radius:50%;background:var(--pri);color:#fff;font-family:var(--fd);font-size:1.3rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;position:relative;z-index:1;box-shadow:0 4px 14px rgba(1,105,111,.3);}
+.step-title{font-size:.97rem;font-weight:700;margin-bottom:8px;}
+.step-desc{font-size:.84rem;color:var(--muted);line-height:1.6;}
+
+/* ── TRUST ── */
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.trust-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px 20px;text-align:center;}
+.trust-num{font-family:var(--fd);font-size:2rem;font-weight:700;color:var(--pri);line-height:1;margin-bottom:6px;}
+.trust-lbl{font-size:.82rem;color:var(--muted);line-height:1.4;}
+
+/* ── FAQ ── */
+.faq-sec{background:var(--sf2);}
+.faq-list{display:flex;flex-direction:column;gap:8px;max-width:800px;}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;transition:box-shadow var(--tr);}
+.faq-item.open{box-shadow:var(--sh-sm);border-color:var(--pri);}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;cursor:pointer;font-weight:600;font-size:.95rem;color:var(--text);transition:color var(--tr);}
+.faq-item.open .faq-q{color:var(--pri);}
+.faq-arrow{width:20px;height:20px;flex-shrink:0;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;transition:transform var(--tr),background var(--tr),border-color var(--tr);}
+.faq-item.open .faq-arrow{transform:rotate(180deg);background:var(--pri);border-color:var(--pri);}
+.faq-arrow svg{transition:stroke var(--tr);}
+.faq-item.open .faq-arrow svg{stroke:#fff;}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.16,1,.3,1);}
+.faq-a-inner{padding:0 22px 18px;font-size:.9rem;color:var(--muted);line-height:1.7;border-top:1px solid var(--divider);}
+.faq-item.open .faq-a{max-height:400px;}
+
+/* ── CONTACTS ── */
+.contacts-sec{background:var(--text);}
+.contacts-in{max-width:var(--max);margin:0 auto;padding:clamp(56px,7vw,88px) 20px;}
+.contacts-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+.contacts-left h2{font-family:var(--fd);font-size:clamp(1.5rem,2.8vw,2rem);font-weight:700;color:#fff;margin-bottom:14px;}
+.contacts-left p{color:rgba(255,255,255,.65);font-size:.93rem;line-height:1.65;margin-bottom:28px;}
+.contact-items{display:flex;flex-direction:column;gap:14px;}
+.citem{display:flex;align-items:flex-start;gap:12px;}
+.citem-ico{width:36px;height:36px;border-radius:var(--r-sm);background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.citem-lbl{font-size:.75rem;color:rgba(255,255,255,.45);margin-bottom:2px;}
+.citem-val{font-size:.92rem;font-weight:600;color:#fff;}
+.msn-big{display:flex;gap:12px;margin-top:28px;}
+.msn-big-btn{flex:1;padding:14px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:.9rem;color:#fff;transition:opacity var(--tr);}
+.msn-big-btn:hover{opacity:.85;}
+.contacts-right{background:var(--surface);border-radius:var(--r-xl);padding:32px 28px;}
+.form-title{font-size:1.1rem;font-weight:700;margin-bottom:6px;color:var(--text);}
+.form-sub{font-size:.84rem;color:var(--muted);margin-bottom:22px;line-height:1.5;}
+.form-group{margin-bottom:14px;}
+.form-label{font-size:.78rem;font-weight:600;color:var(--muted);margin-bottom:5px;display:block;}
+.form-input{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:.92rem;font-family:var(--fb);color:var(--text);background:var(--sf2);transition:border-color var(--tr),box-shadow var(--tr);}
+.form-input:focus{outline:none;border-color:var(--pri);box-shadow:0 0 0 3px rgba(1,105,111,.1);}
+.form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236a6960' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
+.btn-submit{width:100%;background:var(--pri);color:#fff;padding:14px;border-radius:var(--r-sm);font-size:.95rem;font-weight:700;margin-top:6px;transition:background var(--tr),box-shadow var(--tr);box-shadow:0 2px 10px rgba(1,105,111,.25);}
+.btn-submit:hover{background:var(--pri-h);box-shadow:0 4px 18px rgba(1,105,111,.35);}
+.form-note{font-size:.73rem;color:var(--muted);margin-top:8px;line-height:1.5;text-align:center;}
+
+/* ── FOOTER ── */
+footer{background:#0f1210;color:rgba(255,255,255,.5);padding:24px 20px;text-align:center;font-size:.8rem;line-height:1.8;}
+footer a{color:rgba(255,255,255,.7);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero-in{grid-template-columns:1fr;}
+  .hero-stats{flex-direction:row;flex-wrap:wrap;}
+  .hstat{min-width:110px;flex:1;}
+  .trust-grid{grid-template-columns:repeat(2,1fr);}
+  .contacts-grid{grid-template-columns:1fr;}
+  .hdr-nav{display:none;}
+}
+@media(max-width:640px){
+  .steps-row{grid-template-columns:1fr;}
+  .steps-row::before{display:none;}
+  .qual-banner{flex-direction:column;text-align:center;padding:28px 22px;}
+  .qual-banner-txt p{max-width:100%;}
+  .msn-big{flex-direction:column;}
+  .burger{display:flex;}
+  .hdr-phone{font-size:.82rem;padding:7px 11px;}
+}
+@media(max-width:400px){
+  .trust-grid{grid-template-columns:1fr 1fr;}
+  .hstat{min-width:80px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr" role="banner">
+  <div class="hdr-in">
+    <a href="#" class="logo" aria-label="ЮрПомощь24 — на главную">
+      <svg width="38" height="38" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+        <rect width="38" height="38" rx="9" fill="#01696f"/>
+        <path d="M11 28V13.5a2 2 0 012-2h7.5L27 18v10a2 2 0 01-2 2H13a2 2 0 01-2-2z" stroke="#fff" stroke-width="1.8" fill="none"/>
+        <path d="M20.5 11.5v6.5H27" stroke="#fff" stroke-width="1.8" fill="none"/>
+        <line x1="14.5" y1="20" x2="23.5" y2="20" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="14.5" y1="23" x2="21" y2="23" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <span class="logo-name">ЮрПомощь24</span>
+        <span class="logo-city">Юридическая фирма · Москва</span>
+      </div>
+    </a>
+    <nav class="hdr-nav" aria-label="Основная навигация">
+      <a href="#areas">Практика</a>
+      <a href="#how">Как работаем</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="hdr-right">
+      <a href="tel:+74951234567" class="hdr-phone">+7 (495) 123-45-67</a>
+      <div class="msn-row">
+        <a href="https://wa.me/74951234567" class="msn-btn msn-wa" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <a href="https://t.me/yurpomosh24" class="msn-btn msn-tg" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </a>
+      </div>
+      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mob-nav" id="mobNav" aria-label="Мобильное меню">
+  <a href="#areas" onclick="closeMenu()">Практика</a>
+  <a href="#how" onclick="closeMenu()">Как работаем</a>
+  <a href="#faq" onclick="closeMenu()">Частые вопросы</a>
+  <a href="#contacts" onclick="closeMenu()">Контакты</a>
+  <a href="#contacts" class="mob-cta" onclick="closeMenu()">Записаться на консультацию</a>
+  <div class="mob-msn">
+    <a href="https://wa.me/74951234567" style="background:#25d366" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <a href="https://t.me/yurpomosh24" style="background:#2aabee" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      Telegram
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-h1">
+  <div class="hero-in">
+    <div class="hero-content">
+      <div class="hero-tag">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M6 3.5v3l1.5 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        Юридическая фирма · Москва · с 2015 года
+      </div>
+      <h1 id="hero-h1">Защищаем ваши права в суде.<br>Честная оценка дела — за 2 минуты</h1>
+      <p class="hero-sub">Семейные споры, трудовые дела, ДТП, застройщики и права потребителей. Берёмся только за дела, в которых видим реальные шансы на успех.</p>
+      <div class="hero-actions">
+        <a href="qualifier.html" class="btn-hero" target="_blank">Проверить моё дело →</a>
+        <a href="tel:+74951234567" class="btn-hero-ghost">Позвонить</a>
+      </div>
+    </div>
+    <div class="hero-stats" aria-label="Ключевые показатели">
+      <div class="hstat">
+        <div class="hstat-num">500+</div>
+        <div class="hstat-lbl">выигранных<br>дел</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">11</div>
+        <div class="hstat-lbl">лет<br>практики</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">6</div>
+        <div class="hstat-lbl">юристов<br>в команде</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<main>
+
+<!-- QUALIFIER BANNER -->
+<div class="sec">
+  <div class="sec-in">
+    <div class="qual-banner">
+      <div class="qual-banner-txt">
+        <h2>Не уверены, возьмём ли мы ваше дело?</h2>
+        <p>Пройдите <strong>бесплатный квалификатор</strong> — 5 вопросов и вы узнаете: «Мы можем помочь», «Нужна консультация» или «Это не наш профиль». Честно, без лишних звонков.</p>
+      </div>
+      <a href="qualifier.html" class="btn-qual" target="_blank">Пройти квалификатор →</a>
+    </div>
+
+<!-- PRACTICE AREAS -->
+<section id="areas" aria-labelledby="areas-title">
+  <div class="sec-label">Направления практики</div>
+  <h2 class="sec-title" id="areas-title">Чем мы занимаемся</h2>
+  <p class="sec-desc">Работаем только в тех областях права, где у нас есть реальный опыт и накопленная судебная практика.</p>
+  <div class="areas-grid">
+    <article class="area-card">
+      <div class="area-ico">👨‍👩‍👧</div>
+      <h3 class="area-title">Семейные дела</h3>
+      <p class="area-desc">Развод, раздел имущества, алименты, определение места жительства детей, оспаривание брачного договора.</p>
+      <span class="area-price">от 15 000 ₽</span>
+    </article>
+    <article class="area-card">
+      <div class="area-ico">📜</div>
+      <h3 class="area-title">Наследственные дела</h3>
+      <p class="area-desc">Вступление в наследство, оспаривание завещания, восстановление пропущенного срока, выдел доли.</p>
+      <span class="area-price">от 30 000 ₽</span>
+    </article>
+    <article class="area-card">
+      <div class="area-ico">👔</div>
+      <h3 class="area-title">Трудовые споры</h3>
+      <p class="area-desc">Незаконное увольнение, невыплата зарплаты, принуждение к увольнению, дискриминация на рабочем месте.</p>
+      <span class="area-price">от 15 000 ₽</span>
+    </article>
+    <article class="area-card">
+      <div class="area-ico">🚗</div>
+      <h3 class="area-title">ДТП и страховые споры</h3>
+      <p class="area-desc">Взыскание выплаты со страховой, которая отказала или занизила сумму. Работаем только с потерпевшей стороной.</p>
+      <span class="area-price">от 50 000 ₽ ущерба</span>
+    </article>
+    <article class="area-card">
+      <div class="area-ico">🏗️</div>
+      <h3 class="area-title">Проблемы с застройщиком</h3>
+      <p class="area-desc">Неустойка за просрочку, взыскание убытков, устранение строительных дефектов. Работаем по ДДУ.</p>
+      <span class="area-price">от 50 000 ₽</span>
+    </article>
+    <article class="area-card">
+      <div class="area-ico">🛒</div>
+      <h3 class="area-title">Права потребителей</h3>
+      <p class="area-desc">Возврат денег за товар или услугу, обмен товара, взыскание компенсации, устранение недостатков.</p>
+      <span class="area-price">от 15 000 ₽</span>
+      <p class="area-tag-no">Не ведём: уголовные дела, арбитраж, банкротство, налоговые споры</p>
+    </article>
+  </div>
+</section>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="sec how-sec" id="how" aria-labelledby="how-title">
+  <div class="sec-in">
+    <div class="sec-label">Процесс работы</div>
+    <h2 class="sec-title" id="how-title">Как мы работаем</h2>
+    <p class="sec-desc">Три простых шага от первого обращения до результата.</p>
+    <div class="steps-row">
+      <div class="step-item">
+        <div class="step-num" aria-hidden="true">1</div>
+        <h3 class="step-title">Оценка дела</h3>
+        <p class="step-desc">Пройдите квалификатор онлайн или позвоните. Юрист честно скажет: беремся или нет, и почему. Первичная консультация — 1 000 ₽ (30 мин).</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num" aria-hidden="true">2</div>
+        <h3 class="step-title">Договор и стратегия</h3>
+        <p class="step-desc">Фиксируем объём работ и стоимость в договоре. Разрабатываем стратегию, готовим документы, направляем претензию.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num" aria-hidden="true">3</div>
+        <h3 class="step-title">Ведение и результат</h3>
+        <p class="step-desc">Представляем ваши интересы в суде. Держим в курсе на каждом этапе. Платите за результат — мы заинтересованы в победе.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="sec" aria-label="Наши показатели">
+  <div class="sec-in">
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-num">500+</div>
+        <div class="trust-lbl">выигранных дел за 11 лет</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-num">450 000</div>
+        <div class="trust-lbl">₽ средняя сумма взыскания</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-num">6</div>
+        <div class="trust-lbl">специализированных юристов</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-num">2–3</div>
+        <div class="trust-lbl">часа — время ответа на заявку</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec faq-sec" id="faq" aria-labelledby="faq-title">
+  <div class="sec-in">
+    <div class="sec-label">Частые вопросы</div>
+    <h2 class="sec-title" id="faq-title">Вопросы и ответы</h2>
+    <p class="sec-desc">Отвечаем на самые частые вопросы клиентов — честно и без юридического жаргона.</p>
+    <div class="faq-list" role="list">
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Сколько стоит первичная консультация?
+          <span class="faq-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="#6a6960" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Первичная консультация — 1 000 ₽ (30 минут). Онлайн-консультация по телефону или видеосвязи — также 1 000 ₽. Если вы не уверены, подходит ли нам ваша ситуация — сначала пройдите бесплатный квалификатор на сайте.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Как долго рассматривается дело в суде?
+          <span class="faq-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="#6a6960" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Зависит от категории: семейные дела — 1–6 месяцев, наследственные — 6–12 месяцев, трудовые споры — 1–4 месяца. Мы заранее называем реалистичные сроки на консультации — не обещаем невозможного.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Вы работаете со срочными делами?
+          <span class="faq-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="#6a6960" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Да. Если вам нужна срочная помощь — например, обжалование решения или подача документов в дедлайн — позвоните нам. Срочные обращения рассматриваем в день обращения.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Сколько стоит ведение дела?
+          <span class="faq-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="#6a6960" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Стоимость зависит от сложности: семейные дела — от 15 000 ₽, наследственные — от 30 000 ₽, трудовые споры — от 15 000 ₽, дела по ДТП — от 15 000 ₽, застройщики и потребители — от 15 000 ₽. Точная сумма называется после изучения документов и заключения договора.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Можно ли получить консультацию онлайн?
+          <span class="faq-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="#6a6960" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Да, работаем онлайн — по телефону, видеосвязи, в WhatsApp и Telegram. Документы можно направить на почту или в мессенджер. Это удобно, если вы находитесь не в Москве.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Какие документы нужны для развода?
+          <span class="faq-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="#6a6960" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Паспорта обоих супругов, свидетельство о браке, свидетельства о рождении детей (если есть). Если есть споры об имуществе — документы на него. Полный перечень уточним на консультации — в каждом деле он может отличаться.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Что делать при незаконном увольнении?
+          <span class="faq-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="#6a6960" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Не подписывайте никаких документов задним числом. Соберите трудовой договор, приказы, расчётный лист. Обратитесь к нам в течение 1 месяца с даты увольнения — это законный срок для оспаривания. Промедление резко снижает шансы.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Как вступить в наследство?
+          <span class="faq-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="#6a6960" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Нужно обратиться к нотариусу в течение 6 месяцев с даты смерти наследодателя. Если срок пропущен — поможем восстановить его в судебном порядке. Запишитесь на консультацию — разберём вашу ситуацию.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Какие дела вы НЕ ведёте?
+          <span class="faq-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="#6a6960" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Мы специализируемся на семейном, наследственном, трудовом праве, ДТП, застройщиках и правах потребителей. Мы не ведём уголовные дела, арбитраж, банкротство физлиц, налоговые споры. По ДТП работаем только с потерпевшей стороной, при наличии документов и суммы ущерба от 50 000 ₽.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Как записаться на приём?
+          <span class="faq-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="#6a6960" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Позвоните по телефону, напишите в WhatsApp или Telegram — ссылки в шапке сайта, или заполните форму на этой странице. Работаем пн–пт 9:00–18:00, сб 10:00–14:00.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Есть ли гарантия результата?
+          <span class="faq-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="#6a6960" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Юридическую гарантию исхода дела не даёт никто — это противоречит закону. Мы честно оцениваем перспективы на консультации и беремся только за дела, в которых видим реальные основания для успеха. Если шансов нет — скажем сразу.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Вы работаете по всей России?
+          <span class="faq-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="#6a6960" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Очные встречи — в офисе в Москве. Онлайн-консультации и дистанционное сопровождение дел — по всей России. Документы принимаем по почте или в мессенджер.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Как оплатить услуги?
+          <span class="faq-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="#6a6960" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Наличными в офисе, банковским переводом или картой онлайн. После оплаты выдаём договор и акт выполненных работ. Работаем с юридическими и физическими лицами.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Есть ли у вас WhatsApp или Telegram?
+          <span class="faq-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="#6a6960" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Да. Напишите нам в WhatsApp или Telegram — ссылки в шапке сайта и в разделе контактов. Отвечаем в рабочее время в течение 30 минут.</div></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Как быстро мне перезвонят?
+          <span class="faq-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="#6a6960" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">В рабочее время — в течение 2–3 часов. Если оставите заявку в нерабочее время — перезвоним в первой половине следующего рабочего дня. Срочные обращения — приоритет, отвечаем быстрее.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="contacts-sec" id="contacts" aria-labelledby="contacts-title">
+  <div class="contacts-in">
+    <div class="contacts-grid">
+      <div class="contacts-left">
+        <h2 id="contacts-title">Свяжитесь с нами</h2>
+        <p>Запишитесь на консультацию любым удобным способом. Отвечаем в течение 2–3 часов в рабочее время.</p>
+        <div class="contact-items">
+          <div class="citem">
+            <div class="citem-ico">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .22h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+            </div>
+            <div>
+              <div class="citem-lbl">Телефон</div>
+              <a href="tel:+74951234567" class="citem-val">+7 (495) 123-45-67</a>
+            </div>
+          </div>
+          <div class="citem">
+            <div class="citem-ico">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="citem-lbl">Адрес</div>
+              <div class="citem-val">Москва, ул. Профсоюзная, 1</div>
+            </div>
+          </div>
+          <div class="citem">
+            <div class="citem-ico">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div>
+              <div class="citem-lbl">Режим работы</div>
+              <div class="citem-val">Пн–Пт 9:00–18:00 · Сб 10:00–14:00</div>
+            </div>
+          </div>
+        </div>
+        <div class="msn-big">
+          <a href="https://wa.me/74951234567" class="msn-big-btn" style="background:#25d366" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href="https://t.me/yurpomosh24" class="msn-big-btn" style="background:#2aabee" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            Telegram
+          </a>
+        </div>
+      </div>
+      <div class="contacts-right">
+        <div class="form-title">Оставьте заявку</div>
+        <div class="form-sub">Перезвоним в течение 2–3 часов. Срочные — быстрее.</div>
+        <form onsubmit="submitForm(event)">
+          <div class="form-group">
+            <label class="form-label" for="f-name">Ваше имя</label>
+            <input class="form-input" type="text" id="f-name" placeholder="Иван Иванов" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-phone">Телефон</label>
+            <input class="form-input" type="tel" id="f-phone" placeholder="+7 (___) ___-__-__" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-topic">Тема обращения</label>
+            <select class="form-input form-select" id="f-topic">
+              <option value="">Выберите категорию</option>
+              <option>Семейные дела</option>
+              <option>Наследство</option>
+              <option>Трудовой спор</option>
+              <option>ДТП / страховая</option>
+              <option>Застройщик</option>
+              <option>Права потребителя</option>
+              <option>Другое</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-submit">Отправить заявку →</button>
+          <p class="form-note">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2025 ЮрПомощь24 &nbsp;·&nbsp; Москва &nbsp;·&nbsp; <a href="tel:+74951234567">+7 (495) 123-45-67</a> &nbsp;·&nbsp; <a href="mailto:info@yurpomosh24.ru">info@yurpomosh24.ru</a></p>
+  <p style="margin-top:4px">Пн–Пт 9:00–18:00 &nbsp;·&nbsp; Сб 10:00–14:00 &nbsp;·&nbsp; <a href="#">Политика конфиденциальности</a></p>
+</footer>
+
+<script>
+// BURGER
+const burger=document.getElementById('burger');
+const mobNav=document.getElementById('mobNav');
+burger.addEventListener('click',()=>{
+  const open=mobNav.classList.toggle('open');
+  burger.setAttribute('aria-expanded',open);
+  document.body.style.overflow=open?'hidden':'';
+});
+function closeMenu(){mobNav.classList.remove('open');burger.setAttribute('aria-expanded','false');document.body.style.overflow='';}
+
+// FAQ ACCORDION
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item');
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>{ i.classList.remove('open'); i.querySelector('.faq-q').setAttribute('aria-expanded','false'); });
+  if(!wasOpen){ item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+}
+
+// FORM STUB
+function submitForm(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('.btn-submit');
+  btn.textContent='✓ Заявка отправлена!';
+  btn.style.background='#1a7a3c';
+  btn.disabled=true;
+  setTimeout(()=>{e.target.reset();btn.textContent='Отправить заявку →';btn.style.background='';btn.disabled=false;},4000);
+}
+</script>
+</body>
+</html>
