@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ЮрПомощь24 — Квалификатор обращений</title>
+<meta name="description" content="Узнайте за 2 минуты, сможем ли мы помочь в вашей ситуации. Бесплатная предварительная оценка дела онлайн.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f6f2;--surface:#ffffff;--surface2:#f4f3ef;--border:#e2dfd8;
+  --text:#1a1814;--muted:#6b6a66;--faint:#a8a7a3;
+  --primary:#01696f;--primary-h:#0c4e54;--primary-l:#e4f3f4;
+  --success:#1a7a3c;--success-bg:#eaf5ef;
+  --warn:#7a3e00;--warn-bg:#fef3e2;
+  --error:#8a1a1a;--error-bg:#fdeaea;
+  --fd:'Playfair Display',Georgia,serif;--fb:'Inter',sans-serif;
+  --r-sm:6px;--r-md:10px;--r-lg:16px;--r-xl:22px;
+  --sh-sm:0 1px 3px rgba(0,0,0,.07);--sh-md:0 4px 18px rgba(0,0,0,.09);--sh-lg:0 12px 40px rgba(0,0,0,.13);
+  --tr:200ms cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;}
+body{font-family:var(--fb);font-size:1rem;color:var(--text);background:var(--bg);min-height:100dvh;}
+button{cursor:pointer;border:none;background:none;font:inherit;color:inherit;}
+a{color:inherit;text-decoration:none;}
+
+/* HEADER */
+.hdr{background:var(--surface);border-bottom:1px solid var(--border);padding:0 20px;position:sticky;top:0;z-index:100;box-shadow:var(--sh-sm);}
+.hdr-in{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px;}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-txt{font-family:var(--fd);font-size:1.1rem;font-weight:700;line-height:1.1;}
+.logo-sub{font-size:.68rem;color:var(--muted);display:block;font-family:var(--fb);}
+.hdr-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.tel{font-weight:600;font-size:.88rem;color:var(--primary);padding:7px 13px;border:1.5px solid var(--primary);border-radius:var(--r-sm);transition:background var(--tr),color var(--tr);}
+.tel:hover{background:var(--primary);color:#fff;}
+.msn{display:flex;gap:5px;}
+.mb{width:34px;height:34px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;transition:opacity var(--tr);}
+.mb:hover{opacity:.82;}
+.wa{background:#25d366;}.tg{background:#2aabee;}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#01696f,#0c4e54);color:#fff;padding:52px 20px 44px;text-align:center;}
+.hero h1{font-family:var(--fd);font-size:clamp(1.5rem,4vw,2.3rem);font-weight:700;line-height:1.2;margin-bottom:12px;}
+.hero p{font-size:1rem;opacity:.88;max-width:500px;margin:0 auto 24px;line-height:1.6;}
+.badges{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;}
+.bdg{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);color:#fff;padding:4px 12px;border-radius:var(--r-sm);font-size:.8rem;font-weight:500;}
+
+/* MAIN */
+.main{max-width:660px;margin:0 auto;padding:36px 16px 80px;}
+
+/* PROGRESS */
+.prog-wrap{margin-bottom:24px;}
+.prog-lbl{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);margin-bottom:7px;}
+.prog-bar{height:5px;background:var(--border);border-radius:99px;overflow:hidden;}
+.prog-fill{height:100%;background:var(--primary);border-radius:99px;transition:width .4s cubic-bezier(.16,1,.3,1);}
+
+/* CARD */
+.card{background:var(--surface);border-radius:var(--r-xl);box-shadow:var(--sh-md);padding:32px 28px 28px;animation:fu .28s ease;}
+@keyframes fu{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.stag{font-size:.7rem;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;}
+.sq{font-size:1.15rem;font-weight:600;line-height:1.4;margin-bottom:6px;}
+.shint{font-size:.84rem;color:var(--muted);margin-bottom:22px;line-height:1.5;}
+
+/* OPTIONS */
+.opts{display:flex;flex-direction:column;gap:9px;}
+.opt{display:flex;align-items:center;gap:13px;width:100%;text-align:left;padding:13px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);background:var(--surface2);font-size:.93rem;font-weight:500;transition:border-color var(--tr),background var(--tr),box-shadow var(--tr);}
+.opt:hover{border-color:var(--primary);background:var(--primary-l);}
+.opt.sel{border-color:var(--primary);background:var(--primary-l);color:var(--primary);}
+.oico{width:19px;height:19px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:border-color var(--tr);}
+.opt.sel .oico,.opt:hover .oico{border-color:var(--primary);}
+.opt.sel .oico::after{content:'';width:9px;height:9px;border-radius:50%;background:var(--primary);}
+
+/* NAV */
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:26px;gap:10px;}
+.btn-back{font-size:.88rem;color:var(--muted);padding:9px 0;transition:color var(--tr);}
+.btn-back:hover{color:var(--text);}
+.btn-next{background:var(--primary);color:#fff;padding:12px 28px;border-radius:var(--r-sm);font-size:.92rem;font-weight:600;transition:background var(--tr),box-shadow var(--tr);box-shadow:0 2px 8px rgba(1,105,111,.22);}
+.btn-next:hover:not(:disabled){background:var(--primary-h);}
+.btn-next:disabled{background:#b0c9cb;cursor:not-allowed;box-shadow:none;}
+
+/* RESULT */
+.res{background:var(--surface);border-radius:var(--r-xl);box-shadow:var(--sh-lg);padding:44px 32px;text-align:center;animation:fu .35s ease;}
+.rico{width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:1.9rem;}
+.rico.g{background:var(--success-bg);}
+.rico.y{background:var(--warn-bg);}
+.rico.r{background:var(--error-bg);}
+.rtitle{font-family:var(--fd);font-size:1.55rem;font-weight:700;margin-bottom:11px;line-height:1.2;}
+.rtitle.g{color:var(--success);}
+.rtitle.y{color:var(--warn);}
+.rtitle.r{color:var(--error);}
+.rdesc{font-size:.95rem;color:var(--muted);line-height:1.65;max-width:400px;margin:0 auto 26px;}
+.racts{display:flex;flex-direction:column;gap:11px;max-width:300px;margin:0 auto;}
+.btn-p{background:var(--primary);color:#fff;padding:14px 22px;border-radius:var(--r-sm);font-size:.94rem;font-weight:600;width:100%;transition:background var(--tr);}
+.btn-p:hover{background:var(--primary-h);}
+.btn-s{border:1.5px solid var(--border);color:var(--text);padding:12px 22px;border-radius:var(--r-sm);font-size:.92rem;font-weight:500;width:100%;transition:border-color var(--tr);}
+.btn-s:hover{border-color:var(--primary);}
+.rnote{font-size:.75rem;color:var(--faint);margin-top:16px;}
+.msn-res{display:flex;gap:10px;margin-top:2px;}
+.btn-wa{background:#25d366;color:#fff;padding:12px 16px;border-radius:var(--r-sm);font-size:.88rem;font-weight:600;flex:1;display:flex;align-items:center;justify-content:center;gap:7px;transition:opacity var(--tr);}
+.btn-wa:hover{opacity:.87;}
+.btn-tg{background:#2aabee;color:#fff;padding:12px 16px;border-radius:var(--r-sm);font-size:.88rem;font-weight:600;flex:1;display:flex;align-items:center;justify-content:center;gap:7px;transition:opacity var(--tr);}
+.btn-tg:hover{opacity:.87;}
+
+/* FOOTER */
+footer{background:var(--text);color:rgba(255,255,255,.65);text-align:center;padding:26px 20px;font-size:.8rem;line-height:1.75;}
+footer a{color:rgba(255,255,255,.82);}
+
+@media(max-width:560px){
+  .card{padding:22px 16px 18px;border-radius:var(--r-lg);}
+  .res{padding:30px 18px;}
+  .hdr-in{gap:6px;}
+  .logo-txt{font-size:.97rem;}
+  .msn-res{flex-direction:column;}
+  .hero{padding:38px 18px 32px;}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <a href="#" class="logo">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <rect width="36" height="36" rx="8" fill="#01696f"/>
+        <path d="M10 26V13a2 2 0 012-2h7l7 7v8a2 2 0 01-2 2H12a2 2 0 01-2-2z" stroke="#fff" stroke-width="1.8" fill="none"/>
+        <path d="M19 11v6h6" stroke="#fff" stroke-width="1.8" fill="none"/>
+        <line x1="14" y1="19" x2="22" y2="19" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="14" y1="22" x2="20" y2="22" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <span class="logo-txt">ЮрПомощь24</span>
+        <span class="logo-sub">Юридическая фирма · Москва</span>
+      </div>
+    </a>
+    <div class="hdr-right">
+      <a href="tel:+74951234567" class="tel">+7 (495) 123-45-67</a>
+      <div class="msn">
+        <a href="https://wa.me/74951234567" class="mb wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <a href="https://t.me/yurpomosh24" class="mb tg" target="_blank" rel="noopener" aria-label="Telegram">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="#fff"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Узнайте, сможем ли мы помочь — за 2 минуты</h1>
+  <p>Ответьте на несколько вопросов и получите предварительную оценку вашей ситуации. Бесплатно и без звонка.</p>
+  <div class="badges">
+    <span class="bdg">🚗 ДТП</span>
+    <span class="bdg">👔 Трудовые споры</span>
+    <span class="bdg">🏗️ Застройщики</span>
+    <span class="bdg">🛒 Права потребителей</span>
+    <span class="bdg">👨‍👩‍👧 Семья и наследство</span>
+  </div>
+</section>
+
+<main class="main">
+  <div class="prog-wrap" id="progWrap" style="display:none">
+    <div class="prog-lbl">
+      <span id="progTxt">Шаг 1 из 7</span>
+      <span id="progPct">14%</span>
+    </div>
+    <div class="prog-bar"><div class="prog-fill" id="progFill" style="width:14%"></div></div>
+  </div>
+  <div id="quiz"></div>
+</main>
+
+<footer>
+  <p>ЮрПомощь24 &nbsp;·&nbsp; Москва &nbsp;·&nbsp; <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+  <p>Пн–Пт 9:00–18:00 &nbsp;·&nbsp; Сб 10:00–14:00</p>
+</footer>
+
+<script>
+// ── МАРШРУТЫ ──────────────────────────────────────────────
+const ROUTES = {
+  dtp:    ['q_when','q_docs','q_sum','q_dtp_role','q_dtp_ins','q_contact','q_urgency'],
+  trud:   ['q_when','q_docs','q_sum','q_tr_type','q_tr_empl','q_contact','q_urgency'],
+  zastr:  ['q_when','q_docs','q_sum','q_zs_ddu','q_zs_stat','q_contact','q_urgency'],
+  potreb: ['q_when','q_docs','q_sum','q_pt_want','q_contact','q_urgency'],
+  semya:  ['q_when','q_docs','q_sum','q_contact','q_urgency'],
+  other:  ['q_contact','q_urgency']
+};
+
+// ── ВОПРОСЫ ───────────────────────────────────────────────
+const Q = {
+  q_start:{tag:'Шаг 1 — Тип ситуации',q:'С чем вы к нам обращаетесь?',hint:'Выберите категорию, которая точнее всего описывает вашу ситуацию.',
+    opts:[{id:'dtp',l:'🚗 ДТП — проблема со страховой'},{id:'trud',l:'👔 Трудовой спор'},{id:'zastr',l:'🏗️ Проблема с застройщиком'},
+          {id:'potreb',l:'🛒 Права потребителя'},{id:'semya',l:'👨‍👩‍👧 Семейные или наследственные дела'},{id:'other',l:'⚡ Другое — иная ситуация'}]},
+
+  q_when:{tag:'Сроки',q:'Когда произошла ситуация?',hint:'Важно: по многим делам есть срок исковой давности. После его истечения дело вести намного сложнее.',
+    opts:[{id:'fresh',l:'Менее месяца назад'},{id:'half',l:'1–6 месяцев назад'},{id:'year',l:'6–12 месяцев назад'},{id:'old',l:'Более года назад'}]},
+
+  q_docs:{tag:'Документы',q:'Есть ли у вас подтверждающие документы?',hint:'Договоры, чеки, справки, переписка, протоколы — любые бумаги по делу. Без документов 80% дел невозможно вести.',
+    opts:[{id:'all',l:'Да, все документы есть'},{id:'part',l:'Часть документов есть'},{id:'no',l:'Документов нет совсем'},{id:'dk',l:'Не знаю, что нужно'}]},
+
+  q_sum:{tag:'Сумма спора',q:'Какую сумму вы хотите взыскать или вернуть?',hint:'Ориентировочно. Дела с суммой до 15 000 ₽ нерентабельны — судебные издержки превысят взыскание.',
+    opts:[{id:'tiny',l:'До 15 000 ₽'},{id:'sm',l:'15 000 – 50 000 ₽'},{id:'md',l:'50 000 – 200 000 ₽'},{id:'lg',l:'Более 200 000 ₽'},{id:'dk',l:'Не знаю сумму'}]},
+
+  q_dtp_role:{tag:'ДТП — ваша роль',q:'Вы пострадавший или виновник ДТП?',hint:'Пострадавшим помогаем взыскать выплату. Виновникам — защититься в суде (другой формат и условия).',
+    opts:[{id:'victim',l:'Пострадавший — хочу получить выплату'},{id:'guilty',l:'Виновник — ищу защиту в суде'},{id:'both',l:'Обоюдная вина'}]},
+
+  q_dtp_ins:{tag:'ДТП — страховая',q:'Что решила страховая компания?',hint:'Это определяет тактику: досудебная претензия или сразу иск в суд.',
+    opts:[{id:'refused',l:'Отказала в выплате'},{id:'low',l:'Занизила сумму выплаты'},{id:'no',l:'Ещё не обращался в страховую'},{id:'little',l:'Выплатила, но очень мало'}]},
+
+  q_tr_type:{tag:'Трудовой спор — суть',q:'Что именно нарушил работодатель?',hint:'Разные нарушения — разные сроки подачи и разная стратегия.',
+    opts:[{id:'fire',l:'Незаконно уволил'},{id:'salary',l:'Не платит зарплату / задерживает'},{id:'press',l:'Принуждает уволиться'},{id:'other',l:'Дискриминация или другое'}]},
+
+  q_tr_empl:{tag:'Трудовой спор — занятость',q:'Как вы трудоустроены?',hint:'Тип трудоустройства влияет на доказательную базу и шансы на успех.',
+    opts:[{id:'off',l:'Официально — есть трудовой договор'},{id:'gph',l:'Договор ГПХ (подряд / услуги)'},{id:'verb',l:'Устная договорённость (неофициально)'},{id:'trial',l:'На испытательном сроке'}]},
+
+  q_zs_ddu:{tag:'Застройщик — договор',q:'Какой договор у вас заключён с застройщиком?',hint:'ДДУ — самая защищённая форма. Другие договоры усложняют защиту.',
+    opts:[{id:'ddu',l:'ДДУ (договор долевого участия)'},{id:'predv',l:'Предварительный договор'},{id:'other',l:'Другой договор'},{id:'dk',l:'Не знаю, какой договор'}]},
+
+  q_zs_stat:{tag:'Застройщик — статус',q:'Застройщик сейчас работает или объявил о банкротстве?',hint:'Банкротство — особая процедура с другими сроками и механизмами.',
+    opts:[{id:'works',l:'Работает (задержка или дефекты)'},{id:'bankrupt',l:'Объявлен банкротом'},{id:'dk',l:'Не знаю'}]},
+
+  q_pt_want:{tag:'Права потребителя — требование',q:'Чего именно вы хотите добиться?',hint:'',
+    opts:[{id:'refund_g',l:'Вернуть деньги за товар'},{id:'refund_s',l:'Вернуть деньги за услугу'},{id:'exch',l:'Обменять товар'},{id:'comp',l:'Взыскать компенсацию морального вреда'},{id:'fix',l:'Обязать устранить недостаток'}]},
+
+  q_contact:{tag:'Удобный канал',q:'Как вам удобнее получить ответ?',hint:'Мы свяжемся именно так — не навязываем звонок.',
+    opts:[{id:'call',l:'📞 Позвоните мне'},{id:'wa',l:'💬 WhatsApp'},{id:'tg',l:'✈️ Telegram'},{id:'email',l:'📧 Email'}]},
+
+  q_urgency:{tag:'Срочность',q:'Насколько срочно вам нужна помощь?',hint:'Срочные обращения обрабатываем в первую очередь.',
+    opts:[{id:'today',l:'🔴 Очень срочно — сегодня'},{id:'days',l:'🟡 В течение 2–3 дней'},{id:'calm',l:'🟢 Не срочно — хочу разобраться'}]}
+};
+
+// ── РЕЗУЛЬТАТ ─────────────────────────────────────────────
+function getResult(a){
+  const t=a.q_start, when=a.q_when, docs=a.q_docs, sum=a.q_sum;
+  const R=(type,title,desc,acts)=>({type,title,desc,acts});
+
+  if(t==='other') return R('r','Это не наш профиль','Мы специализируемся на ДТП, трудовых спорах, застройщиках, правах потребителей, семейных и наследственных делах. Ваш запрос выходит за рамки нашей практики — но мы можем порекомендовать коллег.',['redirect']);
+  if(docs==='no') return R('r','Это не наш профиль','Без подтверждающих документов дело вести невозможно. Если вы не знаете, какие документы нужны — приходите на консультацию, поможем разобраться.',['consult']);
+  if(sum==='tiny') return R('r','Это не наш профиль','При сумме спора до 15 000 ₽ судебные издержки превысят потенциальное взыскание. Мы честно не беремся за нерентабельные дела.',['redirect']);
+
+  // ДТП
+  if(t==='dtp'){
+    const role=a.q_dtp_role, ins=a.q_dtp_ins;
+    if(when==='old') return R('y','Нужна консультация','Срок исковой давности по ДТП — 3 года. Если прошло более года — нужно тщательно проверить документы и сроки. Возможности есть, но нужно разобраться.',['consult']);
+    if(role==='guilty') return R('y','Нужна консультация','Виновникам ДТП мы помогаем защититься в суде — это другой формат работы и другие условия. Расскажите нам подробности — обсудим варианты.',['consult']);
+    if(role==='victim' && (ins==='refused'||ins==='low'||ins==='little')) return R('g','Мы можем помочь','Отличные основания для дела: страховая нарушила ваши права, вы — потерпевшая сторона, срок не пропущен. Практика по таким делам у нас большая — запишитесь на консультацию.',['consult','msn']);
+    return R('y','Нужна консультация','Нам нужно уточнить детали вашей ситуации. Запишитесь на бесплатную первичную консультацию.',['consult']);
+  }
+
+  // ТРУДОВЫЕ
+  if(t==='trud'){
+    const empl=a.q_tr_empl, type=a.q_tr_type;
+    if(empl==='verb') return R('y','Нужна консультация','Неофициальная занятость существенно усложняет дело — доказательная база ограничена. Но не безнадёжно. Расскажите нам — оценим шансы честно.',['consult']);
+    if(when==='old' && type==='fire') return R('y','Нужна консультация','По незаконному увольнению срок обращения в суд — 1 месяц с даты увольнения. Если прошло больше — нужно восстанавливать срок. Сложнее, но возможно.',['consult']);
+    if(docs!=='no' && sum!=='tiny') return R('g','Мы можем помочь','Трудовые споры — одна из наших ключевых специализаций. Ваша ситуация выглядит перспективно. Приходите на консультацию — разберём детали и стратегию.',['consult','msn']);
+    return R('y','Нужна консультация','Нам нужно уточнить детали ситуации. Запишитесь на первичную консультацию — это бесплатно.',['consult']);
+  }
+
+  // ЗАСТРОЙЩИК
+  if(t==='zastr'){
+    const stat=a.q_zs_stat, ddu=a.q_zs_ddu;
+    if(stat==='bankrupt') return R('r','Это не наш профиль','Банкротство застройщика — особая процедура через арбитражный суд. Это не наша специализация, но мы знаем партнёров, которые занимаются именно такими делами.',['redirect']);
+    if(ddu==='ddu' && sum!=='tiny') return R('g','Мы можем помочь','ДДУ — сильная правовая позиция. Застройщик обязан платить неустойку и возмещать убытки. У нас хорошая практика по таким делам — приходите.',['consult','msn']);
+    if(ddu==='predv'||ddu==='other') return R('y','Нужна консультация','Предварительный или нестандартный договор усложняет защиту, но не делает её невозможной. Нужно изучить ваши документы.',['consult']);
+    return R('y','Нужна консультация','Нам нужно изучить документы, чтобы дать точную оценку. Запишитесь на консультацию.',['consult']);
+  }
+
+  // ПОТРЕБИТЕЛЬ
+  if(t==='potreb'){
+    if(when==='old') return R('y','Нужна консультация','По правам потребителей срок исковой давности — 3 года. Нужно уточнить конкретные даты и обстоятельства.',['consult']);
+    if(docs!=='no' && sum!=='tiny') return R('g','Мы можем помочь','Защита прав потребителей — наша практика. Ваша ситуация выглядит перспективно. Запишитесь на консультацию.',['consult','msn']);
+    return R('y','Нужна консультация','Нам нужно уточнить детали. Первичная консультация — бесплатно.',['consult']);
+  }
+
+  // СЕМЬЯ / НАСЛЕДСТВО
+  if(t==='semya'){
+    if(docs==='dk') return R('y','Нужна консультация','Мы поможем разобраться, какие документы нужны именно в вашей ситуации. Приходите — подготовим список.',['consult']);
+    if(sum!=='tiny') return R('g','Мы можем помочь','Семейные и наследственные дела — наша ключевая специализация. Накопленная практика позволяет вести такие дела уверенно. Записывайтесь.',['consult','msn']);
+    return R('y','Нужна консультация','Нам нужно уточнить детали. Первичная консультация бесплатна.',['consult']);
+  }
+
+  return R('y','Нужна консультация','Приходите на первичную консультацию — разберёмся вместе.',['consult']);
+}
+
+// ── СОСТОЯНИЕ ─────────────────────────────────────────────
+const S = {phase:'start', rtype:null, rsteps:[], ri:0, ans:{}};
+
+const curKey=()=> S.phase==='start'?'q_start':S.rsteps[S.ri];
+const total=()=> S.rtype?1+S.rsteps.length:1;
+const cur=()=> S.phase==='start'?1:2+S.ri;
+const isLast=()=> S.phase!=='start' && S.ri===S.rsteps.length-1;
+
+function updProg(){
+  const w=document.getElementById('progWrap');
+  const f=document.getElementById('progFill');
+  const t=document.getElementById('progTxt');
+  const p=document.getElementById('progPct');
+  if(S.phase==='start'){w.style.display='none';return;}
+  w.style.display='block';
+  const pv=Math.round((cur()/total())*100);
+  f.style.width=pv+'%';
+  t.textContent='Шаг '+cur()+' из '+total();
+  p.textContent=pv+'%';
+}
+
+function render(){
+  const k=curKey(), q=Q[k], sel=S.ans[k]||null;
+  const c=document.getElementById('quiz');
+  updProg();
+  c.innerHTML=`
+    <div class="card">
+      <div class="stag">${q.tag}</div>
+      <div class="sq">${q.q}</div>
+      ${q.hint?`<div class="shint">${q.hint}</div>`:''}
+      <div class="opts">${q.opts.map(o=>`
+        <button class="opt ${sel===o.id?'sel':''}" data-id="${o.id}" onclick="pick('${o.id}')">
+          <span class="oico"></span><span>${o.l}</span>
+        </button>`).join('')}
+      </div>
+      <div class="nav">
+        <button class="btn-back" onclick="back()" ${S.phase==='start'?'style="visibility:hidden"':''}>← Назад</button>
+        <button class="btn-next" id="btnN" onclick="next()" ${!sel?'disabled':''}>
+          ${isLast()?'Получить результат →':'Далее →'}
+        </button>
+      </div>
+    </div>`;
+}
+
+function pick(id){
+  const k=curKey();
+  S.ans[k]=id;
+  document.querySelectorAll('.opt').forEach(b=>b.classList.toggle('sel',b.dataset.id===id));
+  document.getElementById('btnN').disabled=false;
+}
+
+function next(){
+  if(!S.ans[curKey()]) return;
+  if(S.phase==='start'){
+    S.rtype=S.ans.q_start;
+    S.rsteps=ROUTES[S.rtype];
+    S.ri=0;
+    S.phase='route';
+    render();
+  } else if(!isLast()){
+    S.ri++;
+    render();
+  } else {
+    showResult();
+  }
+  window.scrollTo({top:document.querySelector('.main').offsetTop-16,behavior:'smooth'});
+}
+
+function back(){
+  if(S.phase==='start') return;
+  if(S.ri===0){S.phase='start';S.rtype=null;S.rsteps=[];render();}
+  else{S.ri--;render();}
+  window.scrollTo({top:document.querySelector('.main').offsetTop-16,behavior:'smooth'});
+}
+
+function showResult(){
+  const res=getResult(S.ans);
+  const emo={g:'✅',y:'💬',r:'❌'};
+  const c=document.getElementById('quiz');
+  document.getElementById('progWrap').style.display='none';
+
+  const acts=res.acts.map(a=>{
+    if(a==='consult') return `<button class="btn-p" onclick="window.scrollTo(0,0)">📞 Записаться на консультацию</button>`;
+    if(a==='msn') return `<div class="msn-res">
+      <a href="https://wa.me/74951234567" class="btn-wa" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <a href="https://t.me/yurpomosh24" class="btn-tg" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        Telegram
+      </a>
+    </div>`;
+    if(a==='redirect') return `<button class="btn-s" onclick="window.location.reload()">← Начать заново</button>`;
+    return '';
+  }).join('');
+
+  c.innerHTML=`
+    <div class="res">
+      <div class="rico ${res.type}">${emo[res.type]}</div>
+      <div class="rtitle ${res.type}">${res.title}</div>
+      <p class="rdesc">${res.desc}</p>
+      <div class="racts">${acts}</div>
+      <p class="rnote">Первичная консультация — 1 000 ₽ (30 мин) · Пн–Пт 9:00–18:00 · Сб 10:00–14:00</p>
+    </div>
+    <div style="text-align:center;margin-top:16px">
+      <button class="btn-back" onclick="window.location.reload()" style="color:var(--faint);font-size:.82rem">← Пройти заново</button>
+    </div>`;
+  window.scrollTo({top:document.querySelector('.main').offsetTop-16,behavior:'smooth'});
+}
+
+render();
+</script>
+</body>
+</html>
