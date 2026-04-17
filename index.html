@@ -167,6 +167,24 @@ h1,h2,h3,h4{text-wrap:balance;line-height:1.2;}
 footer{background:#0f1210;color:rgba(255,255,255,.5);padding:24px 20px;text-align:center;font-size:.8rem;line-height:1.8;}
 footer a{color:rgba(255,255,255,.7);}
 
+.area-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;}
+.area-duration{font-size:.8rem;color:var(--muted);font-weight:500;}
+.area-cta{display:inline-block;margin-top:14px;font-size:.82rem;font-weight:700;color:var(--pri);text-decoration:none;border-bottom:1.5px solid transparent;transition:border-color var(--tr),color var(--tr);}
+.area-cta:hover{border-bottom-color:var(--pri);}
+
+/* ── REVIEWS ── */
+.reviews-sec{background:var(--sf3);}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr));gap:16px;}
+.review-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:22px 20px;position:relative;}
+.review-stars{color:#f0a500;font-size:1rem;letter-spacing:2px;margin-bottom:10px;}
+.review-text{font-size:.88rem;color:var(--text);line-height:1.65;margin-bottom:14px;}
+.review-result{font-size:.8rem;font-weight:700;color:var(--pri);background:var(--pri-l);padding:5px 10px;border-radius:var(--r-sm);display:inline-block;margin-bottom:14px;}
+.review-author{display:flex;align-items:center;gap:10px;padding-top:12px;border-top:1px solid var(--divider);}
+.review-avatar{width:36px;height:36px;border-radius:50%;background:var(--pri);color:#fff;font-weight:700;font-size:.88rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.review-name{font-size:.88rem;font-weight:600;color:var(--text);}
+.review-case{font-size:.76rem;color:var(--muted);}
+.review-date{font-size:.72rem;color:var(--faint);margin-left:auto;flex-shrink:0;}
+
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
   .hero-in{grid-template-columns:1fr;}
@@ -302,42 +320,66 @@ footer a{color:rgba(255,255,255,.7);}
   <div class="sec-label">Направления практики</div>
   <h2 class="sec-title" id="areas-title">Чем мы занимаемся</h2>
   <p class="sec-desc">Работаем только в тех областях права, где у нас есть реальный опыт и накопленная судебная практика.</p>
-  <div class="areas-grid">
+      <div class="areas-grid">
     <article class="area-card">
       <div class="area-ico">👨‍👩‍👧</div>
       <h3 class="area-title">Семейные дела</h3>
       <p class="area-desc">Развод, раздел имущества, алименты, определение места жительства детей, оспаривание брачного договора.</p>
-      <span class="area-price">от 15 000 ₽</span>
+      <div class="area-meta">
+        <span class="area-price">от 15 000 ₽</span>
+        <span class="area-duration">⏱ 1–6 месяцев</span>
+      </div>
+      <a href="qualifier.html" class="area-cta">Проверить моё дело →</a>
     </article>
     <article class="area-card">
       <div class="area-ico">📜</div>
       <h3 class="area-title">Наследственные дела</h3>
       <p class="area-desc">Вступление в наследство, оспаривание завещания, восстановление пропущенного срока, выдел доли.</p>
-      <span class="area-price">от 30 000 ₽</span>
+      <div class="area-meta">
+        <span class="area-price">от 30 000 ₽</span>
+        <span class="area-duration">⏱ 6–12 месяцев</span>
+      </div>
+      <a href="qualifier.html" class="area-cta">Проверить моё дело →</a>
     </article>
     <article class="area-card">
       <div class="area-ico">👔</div>
       <h3 class="area-title">Трудовые споры</h3>
       <p class="area-desc">Незаконное увольнение, невыплата зарплаты, принуждение к увольнению, дискриминация на рабочем месте.</p>
-      <span class="area-price">от 15 000 ₽</span>
+      <div class="area-meta">
+        <span class="area-price">от 15 000 ₽</span>
+        <span class="area-duration">⏱ 1–4 месяца</span>
+      </div>
+      <a href="qualifier.html" class="area-cta">Проверить моё дело →</a>
     </article>
     <article class="area-card">
       <div class="area-ico">🚗</div>
       <h3 class="area-title">ДТП и страховые споры</h3>
       <p class="area-desc">Взыскание выплаты со страховой, которая отказала или занизила сумму. Работаем только с потерпевшей стороной.</p>
-      <span class="area-price">от 50 000 ₽ ущерба</span>
+      <div class="area-meta">
+        <span class="area-price">от 15 000 ₽</span>
+        <span class="area-duration">⏱ 2–6 месяцев</span>
+      </div>
+      <a href="qualifier.html" class="area-cta">Проверить моё дело →</a>
     </article>
     <article class="area-card">
       <div class="area-ico">🏗️</div>
       <h3 class="area-title">Проблемы с застройщиком</h3>
       <p class="area-desc">Неустойка за просрочку, взыскание убытков, устранение строительных дефектов. Работаем по ДДУ.</p>
-      <span class="area-price">от 50 000 ₽</span>
+      <div class="area-meta">
+        <span class="area-price">от 50 000 ₽</span>
+        <span class="area-duration">⏱ 3–9 месяцев</span>
+      </div>
+      <a href="qualifier.html" class="area-cta">Проверить моё дело →</a>
     </article>
     <article class="area-card">
       <div class="area-ico">🛒</div>
       <h3 class="area-title">Права потребителей</h3>
       <p class="area-desc">Возврат денег за товар или услугу, обмен товара, взыскание компенсации, устранение недостатков.</p>
-      <span class="area-price">от 15 000 ₽</span>
+      <div class="area-meta">
+        <span class="area-price">от 15 000 ₽</span>
+        <span class="area-duration">⏱ 1–3 месяца</span>
+      </div>
+      <a href="qualifier.html" class="area-cta">Проверить моё дело →</a>
       <p class="area-tag-no">Не ведём: уголовные дела, арбитраж, банкротство, налоговые споры</p>
     </article>
   </div>
@@ -521,6 +563,75 @@ footer a{color:rgba(255,255,255,.7);}
           <span class="faq-arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="#6a6960" stroke-width="1.6" stroke-linecap="round"/></svg></span>
         </button>
         <div class="faq-a"><div class="faq-a-inner">В рабочее время — в течение 2–3 часов. Если оставите заявку в нерабочее время — перезвоним в первой половине следующего рабочего дня. Срочные обращения — приоритет, отвечаем быстрее.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- REVIEWS -->
+<section class="sec reviews-sec" aria-labelledby="reviews-title">
+  <div class="sec-in">
+    <div class="sec-label">Отзывы клиентов</div>
+    <h2 class="sec-title" id="reviews-title">Реальные результаты</h2>
+    <p class="sec-desc">Отзывы с указанием типа дела и суммы взыскания — чтобы вы понимали, на что рассчитывать.</p>
+    <div class="reviews-grid">
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">«Страховая занизила выплату в 4 раза — предложили 87 000 вместо положенных 340 000. ЮрПомощь24 взялись за дело, суд мы выиграли полностью.»</p>
+        <div class="review-result">💰 Взыскано 340 000 ₽ + штраф 170 000 ₽</div>
+        <div class="review-author">
+          <div class="review-avatar">АК</div>
+          <div>
+            <div class="review-name">Андрей К.</div>
+            <div class="review-case">ДТП / страховой спор</div>
+          </div>
+          <div class="review-date">март 2025</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">«Уволили "по собственному желанию" под давлением. Юрист объяснил, что это незаконно, помог восстановиться на работе и взыскать компенсацию за вынужденный прогул.»</p>
+        <div class="review-result">💰 Восстановление + 215 000 ₽ компенсации</div>
+        <div class="review-author">
+          <div class="review-avatar">ОМ</div>
+          <div>
+            <div class="review-name">Ольга М.</div>
+            <div class="review-case">Трудовой спор / незаконное увольнение</div>
+          </div>
+          <div class="review-date">январь 2025</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">«Застройщик просрочил сдачу дома на 14 месяцев. Думал, что неустойку почти не дают — юрист объяснил, что судебная практика изменилась, и мы взыскали хорошую сумму.»</p>
+        <div class="review-result">💰 Неустойка 480 000 ₽ + моральный вред</div>
+        <div class="review-author">
+          <div class="review-avatar">ДВ</div>
+          <div>
+            <div class="review-name">Дмитрий В.</div>
+            <div class="review-case">Застройщик / просрочка ДДУ</div>
+          </div>
+          <div class="review-date">ноябрь 2024</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">«Муж скрывал активы при разделе. Юрист нашёл всё через запросы в Росреестр и ГИБДД. Суд разделил имущество справедливо, включая то, что муж пытался спрятать.»</p>
+        <div class="review-result">💰 Доля имущества на 2 400 000 ₽</div>
+        <div class="review-author">
+          <div class="review-avatar">НС</div>
+          <div>
+            <div class="review-name">Наталья С.</div>
+            <div class="review-case">Семейное дело / раздел имущества</div>
+          </div>
+          <div class="review-date">октябрь 2024</div>
+        </div>
       </div>
 
     </div>
